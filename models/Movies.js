@@ -22,4 +22,23 @@ const movieSchema =new mongoose.Schema({
 //creating model
 const movieModel = mongoose.model("Movie",movieSchema);
 
-export default movieModel;
+
+const createDoc =async()=>{
+    try {
+        const m1=new movieModel({
+            name: "Extraction 2",
+            ratings:4,
+            money:60000000000,
+            genre:['action','adventure'],
+            isActive:true,
+            comments:[{value:"that was an amazing movie"}]
+        })
+
+        const result=await m1.save()
+        console.log(result)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export {createDoc};
