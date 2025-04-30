@@ -1,4 +1,6 @@
 import express from "express";
+import movieModel from "./models/Movies.js";
+
 import connectDb from "./db/connectDb.js";
 const app =express();
 const port =process.env.port||8000;
