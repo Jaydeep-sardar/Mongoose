@@ -23,9 +23,9 @@ const movieSchema =new mongoose.Schema({
 const movieModel = mongoose.model("Movie",movieSchema);
 
 
-const updateById =async(id)=>{
+const updateByMany =async()=>{
     try {
-       const result=await movieModel.updateOne({_id:id},{name:"Update"});
+       const result=await movieModel.updateMany({ratings :5},{name:"Update"});
         console.log(result)
     } catch (error) {
         console.log(error)
@@ -33,4 +33,4 @@ const updateById =async(id)=>{
 }
 
 export {allDoc};
-export{updateById};
+export{updateByMany};
