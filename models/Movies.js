@@ -25,12 +25,12 @@ const movieModel = mongoose.model("Movie",movieSchema);
 
 const updateByMany =async()=>{
     try {
-       const result=await movieModel.updateMany({ratings :5},{name:"Update"});
+       const result=await movieModel.findByIdAndDelete("/*specify the id u want to delete*/");
         console.log(result)
     } catch (error) {
         console.log(error)
     }
 }
 
-export {allDoc};
-export{updateByMany};
+//export {allDoc};
+//export{updateByMany};
