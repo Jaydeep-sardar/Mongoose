@@ -23,7 +23,7 @@ const movieSchema =new mongoose.Schema({
 const movieModel = mongoose.model("Movie",movieSchema);
 
 
-const createDoc =async()=>{
+const allDoc =async()=>{
     try {
         const m1=new movieModel({
             name: "Extraction 2",
@@ -34,11 +34,11 @@ const createDoc =async()=>{
             comments:[{value:"that was an amazing movie"}]
         })
 
-        const result=await m1.save()
+        const result=await movieModel.find()
         console.log(result)
     } catch (error) {
         console.log(error)
     }
 }
 
-export {createDoc};
+export {allDoc};
