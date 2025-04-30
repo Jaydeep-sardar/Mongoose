@@ -23,18 +23,9 @@ const movieSchema =new mongoose.Schema({
 const movieModel = mongoose.model("Movie",movieSchema);
 
 
-const allDoc =async()=>{
+const updateById =async(id)=>{
     try {
-        const m1=new movieModel({
-            name: "Extraction 2",
-            ratings:4,
-            money:60000000000,
-            genre:['action','adventure'],
-            isActive:true,
-            comments:[{value:"that was an amazing movie"}]
-        })
-
-        const result=await movieModel.find()
+       const result=await movieModel.updateOne({_id:id},{name:"Update"});
         console.log(result)
     } catch (error) {
         console.log(error)
@@ -42,3 +33,4 @@ const allDoc =async()=>{
 }
 
 export {allDoc};
+export{updateById};
